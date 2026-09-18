@@ -1,146 +1,374 @@
-﻿# Production Control Dashboard
+# 🚀 Production Control Dashboard
 
-A high-performance, internal factory operations dashboard designed for operations managers to monitor work orders, track production bottlenecks, review machine allocation, and manage real-time job execution states.
+A production operations dashboard built using **Next.js**, **React**, **TypeScript**, and **Tailwind CSS** as part of a **Frontend Engineer Take-Home Assignment**.
+
+The dashboard is designed as an internal manufacturing operations tool that helps shop-floor managers monitor work orders, track production status, identify delivery risks, and quickly review individual production jobs.
+
+![Next.js](https://img.shields.io/badge/Next.js-16-black?style=for-the-badge&logo=next.js)
+
+![React](https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react)
+
+![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?style=for-the-badge&logo=typescript)
+
+![TailwindCSS](https://img.shields.io/badge/TailwindCSS-4-38BDF8?style=for-the-badge&logo=tailwindcss)
+
+![shadcn/ui](https://img.shields.io/badge/shadcn%2Fui-Components-black?style=for-the-badge)
 
 ---
 
-## 🚀 Tech Stack
+## 🌐 Live Demo
 
-* **Framework**: [Next.js](https://nextjs.org/) (App Router, React 19)
-* **Language**: [TypeScript](https://www.typescriptlang.org/) (Strict Mode)
-* **Styling**: [Tailwind CSS v4](https://tailwindcss.com/)
-* **UI Primitives**: [shadcn/ui](https://ui.shadcn.com/) (Base UI engine)
-* **Icons**: [lucide-react](https://lucide.dev/)
+[![Website](https://img.shields.io/badge/🚀_Live_Dashboard-Open-success?style=for-the-badge)](https://production-control-dashboard-nine.vercel.app/)
 
-> **Note**: This application is a self-contained front-end demonstration using a typed local mock production dataset. It requires no external database, authentication provider, or backend services.
+[![Source Code](https://img.shields.io/badge/💻_Source_Code-GitHub-black?style=for-the-badge&logo=github)](https://github.com/anshika2410-hub/production-control-dashboard)
+
+---
+
+## 📖 Project Overview
+
+The Production Control Dashboard provides a centralized view of manufacturing work orders and their current production status.
+
+Operations managers can:
+
+- Monitor total, delayed, upcoming, and completed jobs
+- Search work orders by Job ID, product, or customer
+- Filter jobs by production status
+- Sort work orders by due date or quantity
+- Review detailed job information
+- Update job status directly from the detail panel
+- Identify overdue and near-term delivery dates
+- Monitor operational KPIs at a glance
+
+The application uses local mock production data because the assignment does not require a backend, authentication system, or database.
 
 ---
 
 ## ✨ Features
 
-1. **Summary KPI Metric Cards**:
-   * Dynamically tracks **Total Work Orders**, **Delayed Jobs**, **Due Today / Soon** (within a 3-day delivery window), and **Completed Jobs**.
-   * Instant live recalculation whenever a work order's status changes.
+### 📊 Production Overview
 
-2. **Search & Filter Toolbar**:
-   * **Multi-field Search**: Real-time, case-insensitive search matching Job ID (e.g., `JOB-1001`), Product Name, or Customer.
-   * **Status Filter**: Fast segmented toggling between `All`, `Pending`, `In Progress`, `Delayed`, and `Completed`.
-   * **Dual-Field Sorting**: Sort by Due Date or Order Quantity in either Ascending or Descending order.
-   * **Reset Filters**: One-click restoration of initial filter and sort parameters.
+Four dynamically calculated operational metrics:
 
-3. **Production Jobs Table**:
-   * Responsive layout with structured columns: Job ID, Product Name, Customer, Quantity, Due Date, Status Badge, and Assigned Machine.
-   * High-contrast, semantic status badges with indicators.
-   * Date urgency tagging highlighting **Overdue** and **Today** delivery targets.
-   * Keyboard accessible row selection (`Tab`, `Enter`, `Space`).
+- **Total Work Orders**
+- **Delayed Jobs**
+- **Due Today / Soon**
+- **Completed Jobs**
 
-4. **Interactive Job Detail Side Panel (Sheet)**:
-   * Accessible right-side drawer displaying full job specifications and floor notes.
-   * **Live Status Updater**: Allows the operator to change job status (e.g. from `Delayed` to `In Progress` or `Completed`).
-   * **Synchronized State**: Updating a job immediately synchronizes the main table, search pipeline, summary metrics, and active detail view without desynchronization.
+The metrics automatically update when job statuses change.
 
-5. **Empty State Handling**:
-   * Custom empty state illustration with contextual feedback when search filters yield zero results.
+### 🔎 Work Order Search
+
+Search work orders using:
+
+- Job ID
+- Product name
+- Customer
+
+Search is case-insensitive and updates the results dynamically.
+
+### 🎯 Status Filtering
+
+Filter work orders by:
+
+- All Statuses
+- Pending
+- In Progress
+- Delayed
+- Completed
+
+### ↕️ Sorting
+
+Sort work orders by:
+
+- Due Date
+- Quantity
+
+Both ascending and descending sorting are supported.
+
+### 📋 Job Detail Panel
+
+Clicking a work order opens a right-side detail panel containing:
+
+- Job ID
+- Product
+- Customer
+- Quantity
+- Due Date
+- Assigned Machine
+- Current Status
+- Notes / Issues
+- Status update controls
+
+### 🔄 State Synchronization
+
+Job status updates are applied to the primary jobs state and automatically synchronize:
+
+- KPI metrics
+- Work-order table
+- Status filters
+- Selected job details
+
+### 🚨 Operational Date Indicators
+
+The dashboard visually identifies:
+
+- Overdue jobs
+- Jobs due today
+- Upcoming delivery dates
+
+### 📱 Responsive Design
+
+The dashboard is designed for:
+
+- Desktop
+- Tablet
+- Mobile
+
+The work-order table remains horizontally scrollable on smaller screens while the detail panel adapts to the available viewport.
+
+### ♿ Accessibility
+
+The interface includes:
+
+- Semantic interactive controls
+- Keyboard-friendly interactions
+- Accessible labels
+- Visible focus states
+- Appropriate status contrast
+- Responsive interaction patterns
 
 ---
 
-## 🛠️ Setup & Running Locally
+## 🛠 Tech Stack
 
-### Prerequisites
-* [Node.js](https://nodejs.org/) (v18.18+ or v20+ recommended)
-* `npm` (or `pnpm` / `yarn`)
+- **Next.js**
+- **React**
+- **TypeScript**
+- **Tailwind CSS**
+- **shadcn/ui**
+- **Lucide React**
 
-### Installation & Run
-
-1. Clone or navigate to the project directory:
-   ```bash
-   cd Production-Control-Dashboard
-   ```
-
-2. Install dependencies (if not already installed):
-   ```bash
-   npm install
-   ```
-
-3. Start the local development server:
-   ```bash
-   npm run dev
-   ```
-
-4. Open your browser and navigate to:
-   ```
-   http://localhost:3000
-   ```
-
-5. To run the production build:
-   ```bash
-   npm run build
-   npm run start
-   ```
+No external table, chart, dashboard, or UI framework is used.
 
 ---
 
-## 📁 Component & Directory Structure
+## 📂 Project Structure
 
 ```text
-src/
-├── app/
-│   ├── layout.tsx                # Root layout with fonts, metadata, and body styles
-│   ├── page.tsx                  # Home page rendering <Dashboard />
-│   └── globals.css               # Global Tailwind CSS and theme design tokens
+production-control-dashboard/
 │
-├── components/
-│   ├── ui/                       # shadcn/ui primitives
-│   │   ├── badge.tsx
-│   │   ├── button.tsx
-│   │   ├── card.tsx
-│   │   ├── input.tsx
-│   │   ├── select.tsx
-│   │   ├── sheet.tsx
-│   │   └── table.tsx
+├── src/
+│   ├── app/
+│   │   ├── globals.css
+│   │   ├── layout.tsx
+│   │   └── page.tsx
 │   │
-│   └── dashboard/                # Domain-specific dashboard components
-│       ├── dashboard.tsx         # Main dashboard coordinator & header
-│       ├── summary-metrics.tsx   # 4 dynamic KPI cards
-│       ├── filters-search.tsx    # Search input, status pills, and sorting controls
-│       ├── jobs-table.tsx        # Production work orders table with empty state
-│       ├── status-badge.tsx      # Accessible status indicator badges
-│       └── job-detail-panel.tsx  # Right slide-over sheet with live status changer
+│   ├── components/
+│   │   ├── dashboard/
+│   │   │   ├── dashboard.tsx
+│   │   │   ├── filters-search.tsx
+│   │   │   ├── job-detail-panel.tsx
+│   │   │   ├── jobs-table.tsx
+│   │   │   ├── status-badge.tsx
+│   │   │   └── summary-metrics.tsx
+│   │   │
+│   │   └── ui/
+│   │       ├── badge.tsx
+│   │       ├── button.tsx
+│   │       ├── card.tsx
+│   │       ├── input.tsx
+│   │       ├── select.tsx
+│   │       ├── sheet.tsx
+│   │       └── table.tsx
+│   │
+│   ├── data/
+│   │   └── mock-jobs.ts
+│   │
+│   ├── hooks/
+│   │   └── use-production-dashboard.ts
+│   │
+│   ├── lib/
+│   │   └── utils.ts
+│   │
+│   └── types/
+│       └── job.ts
 │
-├── data/
-│   └── mock-jobs.ts              # 12 realistic factory jobs with diverse statuses & machines
-│
-├── hooks/
-│   └── use-production-dashboard.ts # Custom hook managing single-source-of-truth state & memoized pipeline
-│
-├── lib/
-│   └── utils.ts                  # ClassName concatenation utility (cn)
-│
-└── types/
-    └── job.ts                    # TypeScript definitions for Job, JobStatus, and filters
+├── public/
+├── README.md
+├── package.json
+├── tsconfig.json
+└── next.config.ts
 ```
 
 ---
 
-## 🧠 Data & State Management Approach
+## 🚀 Getting Started
 
-* **Single Source of Truth**: The primary `jobs` state array resides inside the `useProductionDashboard` hook.
-* **Derived Calculations**: Summary metrics and table views (`filteredAndSortedJobs`) are computed via `useMemo` from `jobs`, `searchQuery`, `statusFilter`, and `sortConfig`.
-* **ID-Based Selection (`selectedJobId`)**: Instead of storing a detached `selectedJob` copy in state, the active job is derived by ID (`jobs.find(j => j.id === selectedJobId)`). This guarantees that modifying a job's status updates the table, metrics, and side panel simultaneously in a single React render tick.
+### Prerequisites
+
+Before running the project, make sure you have:
+
+- **Node.js 18 or later** — [Download Node.js](https://nodejs.org/)
+- **npm** — Included with Node.js
+
+Verify the installation:
+
+```bash
+node -v
+npm -v
+```
+
+### Clone Repository
+
+```bash
+git clone https://github.com/anshika2410-hub/production-control-dashboard.git
+```
+
+### Navigate to Project
+
+```bash
+cd production-control-dashboard
+```
+
+### Install Dependencies
+
+```bash
+npm install
+```
+
+### Run Development Server
+
+```bash
+npm run dev
+```
+
+Open the application in your browser:
+
+```text
+http://localhost:3000
+```
+
+### Build for Production
+
+```bash
+npm run build
+```
+
+### Run Production Build
+
+```bash
+npm start
+```
 
 ---
 
-## 💡 Assumptions
+## 🧩 Component Architecture
 
-* **Date Format**: Standard ISO dates (`YYYY-MM-DD`) are used in mock data for straightforward lexical/temporal comparison.
-* **Due Today / Soon Window**: Work orders with a due date within 3 calendar days of the current date are classified as "Due Soon".
-* **Single Factory Environment**: Machine assignments and work orders are assumed to operate within a unified factory facility.
+The dashboard follows a component-based architecture where UI responsibilities are separated from state and data logic.
+
+### Dashboard Components
+
+- **`dashboard.tsx`**  
+  Main dashboard composition and overall page layout.
+
+- **`summary-metrics.tsx`**  
+  Displays dynamically calculated production KPIs.
+
+- **`filters-search.tsx`**  
+  Handles search, status filtering, and sorting controls.
+
+- **`jobs-table.tsx`**  
+  Displays the production work-order table.
+
+- **`status-badge.tsx`**  
+  Reusable status indicator component for different job states.
+
+- **`job-detail-panel.tsx`**  
+  Displays detailed information for the selected job and provides status update controls.
+
+### State & Data
+
+- **`use-production-dashboard.ts`**  
+  Centralizes dashboard state, filtering, sorting, KPI calculations, job selection, and status updates.
+
+- **`mock-jobs.ts`**  
+  Contains the local mock production work-order dataset.
+
+- **`job.ts`**  
+  Defines TypeScript types and interfaces used throughout the dashboard.
+
+This separation keeps UI components focused while centralizing the dashboard's data and state management logic.
 
 ---
 
-## 🔮 Future Enhancements (With More Time)
+## 📝 Assumptions
 
-* **Bulk Actions**: Batch status updates and assignment reassignment for multiple selected work orders.
-* **Machine Capacity View**: A secondary tab or lane-based timeline visualizing utilization across specific CNC machines and welding cells.
-* **Persistent Storage**: Integration with `localStorage` or REST/GraphQL endpoints with optimistic mutation rollbacks.
-* **Exporting**: One-click CSV/PDF export of work orders filtered by shift or status.
+The following assumptions were made while implementing the dashboard:
+
+- The application uses local mock data because no backend or database was required.
+- Authentication and role-based permissions are outside the scope of the assignment.
+- **Due Today / Soon** represents jobs due today through the next 3 calendar days.
+- Job status changes are stored in client-side state and reset after a page refresh.
+- Machine names, customers, quantities, notes, and dates represent realistic sample manufacturing data.
+- The dashboard is intended for internal operations use rather than a customer-facing interface.
+- The provided mock dataset is sufficient to demonstrate search, filtering, sorting, status updates, and KPI calculations.
+
+---
+
+## 🎯 Assignment Objectives
+
+The implementation focuses on the core requirements of the Frontend Engineer take-home assignment:
+
+- Operational dashboard design
+- Work-order data presentation
+- Search and filtering
+- Sorting
+- KPI calculations
+- Job detail interaction
+- Status management
+- Responsive UI
+- Component reusability
+- Client-side state management
+- Type-safe development
+- Clear and maintainable project structure
+
+---
+
+## 🔮 What I Would Improve With More Time
+
+If this dashboard were extended into a production application, I would consider:
+
+- Connecting the dashboard to a real production API
+- Persisting job status updates using a backend and database
+- Adding loading, API error, and retry states
+- Adding pagination or virtualization for large work-order datasets
+- Adding date-range filtering
+- Adding advanced production filters
+- Adding job status history and audit logs
+- Adding role-based access for managers and operators
+- Adding automated tests for filtering, sorting, KPI calculations, and status updates
+- Adding real-time production updates using WebSockets or Server-Sent Events
+
+---
+
+## 📌 Project Status
+
+The dashboard is fully implemented with local mock data and deployed as a live Next.js application on Vercel.
+
+### Verification
+
+- TypeScript compilation: ✅ Passed
+- ESLint: ✅ Passed
+- Production build: ✅ Passed
+- Responsive layout: ✅ Implemented
+- Search and filtering: ✅ Implemented
+- Sorting: ✅ Implemented
+- Job detail panel: ✅ Implemented
+- Status updates: ✅ Implemented
+- KPI synchronization: ✅ Implemented
+
+---
+
+## 📄 License
+
+This project was created as part of a Frontend Engineer take-home assignment and is intended for evaluation and educational purposes.
